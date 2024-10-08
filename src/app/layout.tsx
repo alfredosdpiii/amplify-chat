@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
+import { AuthButtons } from "@/components/componentGroups/AuthButtons";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,11 +28,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <UserProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <header className="text-white font-bold bg-green-900 text-2xl p-2 mb-3 rounded-b-lg shadow-gray-700 shadow-lg flex">
+            <div className="flex flex-grow">
+              <Link href="/">RAG Chat</Link>
+              <Link href="/about" className="ml-5 font-light">
+                About
+              </Link>
+            </div>
+            <AuthButtons />
+          </header>
+          {children}
+        </body>
+      </UserProvider>
     </html>
   );
 }
