@@ -1,6 +1,7 @@
+import styles from "./button-styles.module.css";
 export const LogoutButton = () => {
   return (
-    <a className="button__logout" href="/api/auth/logout">
+    <a className={styles.button} href="/api/auth/logout">
       Log Out
     </a>
   );

@@ -1,6 +1,7 @@
+import styles from "./button-styles.module.css";
 export const LoginButton = () => {
   return (
-    <a className="button__login" href="/api/auth/login">
+    <a className={styles.button} href="/api/auth/login">
       Log In
     </a>
   );
