@@ -20,7 +20,7 @@ export default function ChatGroup() {
 
     try {
       const response = await fetch(
-        "https://32fa-124-217-57-26.ngrok-free.app/query",
+        "https://7677-124-217-57-26.ngrok-free.app/query",
         {
           method: "POST",
           headers: {
